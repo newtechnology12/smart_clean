@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { motion } from "framer-motion"
+import Link from 'next/link'
 
 const HeroSection = () => {
     return (
@@ -11,26 +12,19 @@ const HeroSection = () => {
                 <h1 className=' text-[25px] leading-[30px] lg:leading-[40px]  max-w-[600px] text-center lg:text-start lg:text-[40px] text-white font-[800] '>Find Trusted <br /> Cleaners or Grow Your Cleaning Business</h1>
                 <span className=' text-subtext text-[14px] text-center sm:text-start'>Find Trusted Cleaners or Grow Your Cleaning Business</span>
                 <div className='flex flex-col sm:flex-row gap-[10px] lg:py-4'>
-                    <a href="" className='px-[30px] py-[14px] rounded-[8px] bg-secondary flex flex-row items-center gap-[10px]'>
+                    <Link href="#contact" className='px-[30px] py-[14px] rounded-[8px] bg-secondary flex flex-row items-center gap-[10px]'>
                         <span className='text-[16px] font-[400] text-white'>Reach To Us</span>
+
                         <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 11.9998H4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                             <path d="M15.0001 17C15.0001 17 20 13.3176 20 12C20 10.6824 15 7 15 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         </div>
-                    </a>
-                    <a href="" className='px-[30px] py-[14px] rounded-[8px] border-[2px] border-secondary flex flex-row items-center gap-[10px]'>
-                        <span className='text-[16px] font-[400] text-secondary'>Get A Quote</span>
-                        <div>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M20 11.9998H4" stroke="#E2B659" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                <path d="M15.0001 17C15.0001 17 20 13.3176 20 12C20 10.6824 15 7 15 7" stroke="#E2B659" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </a>
+                    </Link>
                 </div>
                 <div className='flex flex-row items-center gap-[20px] py-2'>
                     <div className='flex flex-col leading-6'>
+
                         <span className='text-[32px] font-[600] text-white'>35k +</span>
                         <span className='text-[14px] text-subtext'>Active Users</span>
                     </div>

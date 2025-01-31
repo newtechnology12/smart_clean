@@ -61,8 +61,9 @@ export default function Home() {
       <JoinOurNetwork />
       <Testimonials />
       <OurMobileApp />
-      <div className="w-full flex flex-col gap-[40px] bg-[#fbfbfb] px-[10px] md:px-[50px] lg:px-[100px] py-[50px]">
+      <div id="contact" className="w-full flex flex-col gap-[40px] bg-[#fbfbfb] px-[10px] md:px-[50px] lg:px-[100px] py-[50px]">
         <div className="text-[12px] flex flex-col w-[120px] items-center justify-center p-2 bg-[#000] text-[#fff] rounded-[8px]">Contact Us</div>
+
         <div className="w-full flex lg:flex-row flex-col-reverse  gap-[40px]">
           <div className=" w-full lg:w-1/4  flex flex-col gap-[20px]">
             <h1 className="text-[24px] font-[600]">LET'S GET IN TOUCH</h1>
