@@ -85,7 +85,7 @@ export default function Home() {
                 </svg>
                 <div className="flex flex-col">
                   <span className="text-[16px] font-[600] ">Email</span>
-                  <span className="text-[14px]">info@example.com</span>
+                  <span className="text-[14px]">info@prozlab.com</span>
                 </div>
               </div>
               <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-[#F8F8F8] items-center">
@@ -96,7 +96,7 @@ export default function Home() {
                 </svg>
                 <div className="flex flex-col">
                   <span className="text-[16px] font-[600] ">Phone</span>
-                  <span className="text-[14px]">+62 812 3456 7890</span>
+                  <span className="text-[14px]">+1 (432) 308-6130</span>
                 </div>
               </div>
             </div>

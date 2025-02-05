@@ -27,7 +27,7 @@ const NavbarHome = () => {
                 <div className='flex flex-row gap-[20px] items-center'>
 
                     <a href="/" className='rounded-[8px]  text-white font-[700]'>
-                        <Image src={`/image/logo2.png`} width={1000} height={1000} className='w-[80px]' alt='logo' />
+                        {/* <Image src={`/image/smartclean.png`} width={1000} height={1000} className='w-[80px]' alt='logo' /> */}
                     </a>
                     <div className='flex flex-row gap-[20px] items-center'>
                         <a href="./" className={` text-[14px] font-[400] hover:scale-110 duration-300  rounded-[8px] ${params == "/provider" ? " bg-[#F7F7F7] px-6 p-2 text-black" : " text-black"}`}>How it works</a>

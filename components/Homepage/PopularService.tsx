@@ -30,31 +30,35 @@ const PopularService = () => {
     const popularServices = [
         {
             name: "Residential Cleaning",
-            image: "/image/loudry.png"
+            image: "/image/loudry.jpg"
         },
         {
             name: "Commercial Cleaning",
-            image: "/image/loudry.png"
+            image: "/image/loudry2.jpg"
         },
         {
             name: "Deep Cleaning",
-            image: "/image/loudry.png"
+            image: "/image/loudry3.jpg"
         },
         {
             name: "Move In/Move Out",
-            image: "/image/loudry.png"
+            image: "/image/loudry5.jpg"
         },
         {
             name: "Post-Construction",
-            image: "/image/loudry.png"
+            image: "/image/house1.jpg"
         },
         {
             name: "Window Cleaning",
-            image: "/image/loudry.png"
+            image: "/image/47768237_l.webp"
         },
         {
             name: "Carpet & Upholstery",
-            image: "/image/loudry.png"
+            image: "/image/OIP (3).jpeg"
+        },
+        {
+            name: "Floor Cleaning",
+            image: "/image/faq.png"
         }
     ];
 

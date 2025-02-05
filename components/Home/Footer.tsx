@@ -52,9 +52,9 @@ const Footer = () => {
                 <div className='flex flex-col gap-[15px] items-center sm:items-start'>
                     <h1 className='text-[18px] font-[700] text-[#333330]'>Contact Us</h1>
                     <div className='flex flex-col gap-[10px] text-[#4B4B4B] text-center sm:text-start'>
-                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Tel: +250789944201</a>
-                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>info@hiremeafrika.com</a>
-                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Kigali, Rwanda</a>
+                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Tel: +1 (432) 308-6130</a>
+                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>info@prozlab.com</a>
+                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>USA</a>
                     </div>
                 </div>
             </div>
