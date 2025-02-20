@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className={`w-full bg-primary overflow-hidden  mt-[10vh] ${isActive ? "h-screen border-t-[4px]" : "h-[0px] border-t-[0px]"} duration-300 transition-all fixed z-30`}>
                 <div className={`flex flex-col gap-[50px] py-5 px-10`}>
                     <Link href="/" className='text-white text-[12px] font-[400] hover:scale-110 duration-300'>Home</Link>
-                    <Link href="" className='text-white text-[12px] font-[400] hover:scale-110 duration-300'>How It Works</Link>
+                    <Link href="/HowItWorks" className='text-white text-[12px] font-[400] hover:scale-110 duration-300'>How It Works</Link>
                     <Link href="/services" className='text-white text-[12px] font-[400] hover:scale-110 duration-300'>Services</Link>
                     <Link href="/aboutus" className='text-white text-[12px] font-[400] hover:scale-110 duration-300'>About Us</Link>
                 </div>

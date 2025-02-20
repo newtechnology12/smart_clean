@@ -75,7 +75,7 @@ export default function Home() {
                 </svg>
                 <div className="flex flex-col">
                   <span className="text-[16px] font-[600] ">Address</span>
-                  <span className="text-[14px]">Jl. Raya Kediri</span>
+                  <span className="text-[14px]">2807 henderson ave  odessa , Tx 79764</span>
                 </div>
               </div>
               <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-[#F8F8F8] items-center">

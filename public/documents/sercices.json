@@ -3,24 +3,24 @@
         {
             "id": 1,
             "slug": "homeclean",
-            "name": "Home cleaning",
-            "description": "Keep your home looking fresh and clean with regular maintenance. The standard cleaning service includes dusting all surfaces, vacuuming carpets, sweeping and mopping floors, wiping down countertops, cleaning bathrooms, and tidying up living spaces.",
-            "features":[
+            "name": "Residential Cleaning",
+            "description": "Transform your living space with our advanced home cleaning solutions. Using eco-friendly products and smart cleaning technology, we deliver comprehensive cleaning services that ensure a healthy, pristine environment for you and your family. Our systematic approach covers every corner of your home, from detailed surface cleaning to deep sanitization.",
+            "features": [
                 {
                     "id": 1,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Smart scheduling system with flexible booking options"
                 },
                 {
                     "id": 2,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Eco-friendly cleaning products safe for children and pets"
                 },
                 {
                     "id": 3,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Advanced air filtration and allergen removal techniques"
                 },
                 {
                     "id": 4,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Detailed cleaning report with digital documentation"
                 }
             ]
         },
@@ -28,95 +28,95 @@
             "id": 2,
             "slug": "movin",
             "name": "Move-In/Move-Out Cleaning",
-            "description": "Moving can be stressful, so let us handle the cleaning. This service ensures your old home is spotless for the next occupant and your new home is ready for you. It includes thorough cleaning of all rooms, appliances, cabinets, and fixtures.",
-            "features":[
+            "description": "Experience a seamless transition with our specialized move-in/move-out cleaning service. We utilize advanced cleaning technology and detailed protocols to ensure every surface meets our rigorous standards. Our service includes deep cleaning of all areas, ensuring your space is ready for its next chapter.",
+            "features": [
                 {
                     "id": 1,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "360-degree property inspection and documentation"
                 },
                 {
                     "id": 2,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Deep cleaning of all fixtures, cabinets, and appliances"
                 },
                 {
                     "id": 3,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Professional carpet and floor treatment services"
                 },
                 {
                     "id": 4,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Digital completion report with before/after comparisons"
                 }
             ]
         },
         {
             "id": 3,
             "slug": "carclean",
-            "name": "Car Cleaning",
-            "description": " Keep your vehicle looking its best with our comprehensive car cleaning services. We offer interior and exterior cleaning, including washing, waxing, vacuuming, and detailing.",
-            "features":[
+            "name": "Premium Auto Detailing",
+            "description": "Revitalize your vehicle with our comprehensive auto detailing service. Using advanced cleaning technology and premium products, we provide meticulous interior and exterior cleaning that goes beyond traditional car washing. Our service ensures your vehicle receives professional care that protects its appearance and value.",
+            "features": [
                 {
                     "id": 1,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Advanced interior sanitization and deodorization"
                 },
                 {
                     "id": 2,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Ceramic coating and paint protection options"
                 },
                 {
                     "id": 3,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "High-pressure steam cleaning for engines and wheels"
                 },
                 {
                     "id": 4,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Environmental-friendly waterless cleaning solutions"
                 }
             ]
         },
         {
             "id": 4,
             "slug": "officeclean",
-            "name": "Office Cleaning",
-            "description": "A clean office is crucial for a productive work environment. This service includes daily or weekly cleaning of workspaces, restrooms, kitchens, and common areas. Customizable plans fit the specific needs of your business.",
-            "features":[
+            "name": "Commercial Office Cleaning",
+            "description": "Elevate your workplace environment with our professional office cleaning solutions. We combine smart scheduling, advanced cleaning technology, and trained professionals to maintain a pristine, healthy workplace. Our services are customized to your business hours and specific requirements, ensuring minimal disruption to your operations.",
+            "features": [
                 {
                     "id": 1,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Smart monitoring system for cleaning task management"
                 },
                 {
                     "id": 2,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Hospital-grade sanitization protocols"
                 },
                 {
                     "id": 3,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Air quality monitoring and improvement services"
                 },
                 {
                     "id": 4,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "24/7 emergency cleaning response availability"
                 }
             ]
         },
         {
             "id": 5,
-            "slug": "reatailclean",
-            "name": "Retail Cleaning",
-            "description": "Moving can be stressful, so let us handle the cleaning. This service ensures your old home is spotless for the next occupant and your new home is ready for you. It includes thorough cleaning of all rooms, appliances, cabinets, and fixtures.",
-            "features":[
+            "slug": "retailclean",
+            "name": "Retail Space Maintenance",
+            "description": "Keep your retail space inviting and pristine with our specialized retail cleaning services. We understand the unique challenges of retail environments and provide tailored solutions that maintain your space's appearance while ensuring customer safety. Our services adapt to your business hours and peak trading times.",
+            "features": [
                 {
                     "id": 1,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "High-traffic area maintenance protocols"
                 },
                 {
                     "id": 2,
-                    "name": "Detailed cleaning checklist to ensure nothing is missed"
+                    "name": "Display and merchandise area specialized cleaning"
                 },
                 {
                     "id": 3,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "After-hours deep cleaning services"
                 },
                 {
                     "id": 4,
-                    "name": "Customized cleaning plans tailored to your home needs"
+                    "name": "Emergency spill response and cleanup"
                 }
             ]
         }
