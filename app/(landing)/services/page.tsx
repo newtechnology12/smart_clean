@@ -27,7 +27,7 @@ const Services = () => {
     }
 
     return (
-        <section className="w-full bg-gray-50">
+        <section className="w-full bg-gray-50 mt-12">
             {/* Hero Banner */}
             <div className="relative bg-primary py-16 overflow-hidden">
                 <div className="absolute inset-0 w-full h-full opacity-20">
@@ -40,7 +40,7 @@ const Services = () => {
                         priority 
                     />
                 </div>
-                <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 mt-78">
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         Transform Your Space with Smart Cleaning Technology
                     </h1>

@@ -4,7 +4,7 @@ import React from 'react';
 
 const HowItWorks = () => {
     return (
-        <section className="w-full bg-gray-50">
+        <section className="w-full bg-gray-50 ">
             {/* Hero Banner */}
             <div className="relative bg-primary py-16 overflow-hidden">
                 <div className="absolute inset-0 w-full h-full opacity-20">
@@ -17,7 +17,7 @@ const HowItWorks = () => {
                         priority 
                     />
                 </div>
-                <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <div className="relative max-w-4xl mx-auto text-center px-4 mt-76 sm:px-6 lg:px-8">
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         How It Works
                     </h1>
