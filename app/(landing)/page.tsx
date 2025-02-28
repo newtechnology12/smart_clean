@@ -55,7 +55,7 @@ export default function Home() {
     },
   });
   return (
-    <div className="w-full ">
+    <div className="w-full mt-8">
       <HeroSection />
       <PopularService />
       <JoinOurNetwork />

@@ -88,7 +88,7 @@ const ProvidersContent = () => {
                   </div>
                 </div>
                 <div className='providerButton duration-300 transition-all grid grid-cols-2 w-full gap-[10px]'>
-                  <a href="" className='w-full p-2 text-[12px] bg-[#EFEFEF] flex items-center justify-center'>
+                  <a href="/booking" className='w-full p-2 text-[12px] bg-[#EFEFEF] flex items-center justify-center'>
                     Book Service
                   </a>
                   <a href="/company" className='w-full p-2 text-[12px] text-white bg-[#13829F] flex items-center justify-center'>
