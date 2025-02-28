@@ -44,7 +44,7 @@ const AboutUs = () => {
                                 backed by trained professionals and state-of-the-art equipment.
                             </p>
                             <Link 
-                                href="/#contactus" 
+                                href="/booking" 
                                 className="inline-block bg-primary text-white px-6 py-3 rounded-xl 
                                          text-base md:text-lg font-medium hover:opacity-90 
                                          transition-opacity shadow-md"
@@ -95,7 +95,7 @@ const AboutUs = () => {
                             </div>
                             <div className="md:text-left text-center">
                                 <Link 
-                                    href="/#services" 
+                                    href="/services" 
                                     className="inline-block bg-primary text-white px-6 py-3 rounded-xl 
                                              text-base md:text-lg font-medium hover:opacity-90 
                                              transition-opacity shadow-md"

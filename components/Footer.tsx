@@ -51,10 +51,10 @@ const Footer = () => {
                     </div>
                     <div className='flex flex-col gap-[10px]'>
                         <h1 className='text-[16px] text-white font-[600]'>Quick links</h1>
-                        <a href="" className='text-white text-[16px] hover:text-secondary duration-200'>About Us</a>
-                        <a href="" className='text-white text-[16px] hover:text-secondary duration-200'>Services</a>
-                        <a href="" className='text-white text-[16px] hover:text-secondary duration-200'>How it works</a>
-                        <a href="" className='text-white text-[16px] hover:text-secondary duration-200'>About Us</a>
+                        <a href="/aboutus" className='text-white text-[16px] hover:text-secondary duration-200'>About Us</a>
+                        <a href="/services" className='text-white text-[16px] hover:text-secondary duration-200'>Services</a>
+                        <a href="/HowItWorks" className='text-white text-[16px] hover:text-secondary duration-200'>How it works</a>
+                        <a href="/booking" className='text-white text-[16px] hover:text-secondary duration-200'>Book Now</a>
                     </div>
                     <div className='flex flex-col gap-[10px]'>
                         <h1 className='text-[16px] text-white font-[600]'>Quick links</h1>
