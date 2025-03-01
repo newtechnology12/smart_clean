@@ -1,8 +1,10 @@
-"use client"
-import Image from 'next/image';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+"use client";
+
+import Image from "next/image";
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer"; import { useServices } from "../provider/ServicesContext";
+;
 
 const containerVariants = {
     hidden: { opacity: 0, scale: 0.9 },
@@ -21,53 +23,16 @@ const itemVariants = {
     visible: { opacity: 1, scale: 1 }
 };
 
-const PopularService = () => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,  
-        threshold: 0.1     
-    });
-
-    const popularServices = [
-        {
-            name: "Residential Cleaning",
-            image: "/image/loudry.jpg"
-        },
-        {
-            name: "Commercial Cleaning",
-            image: "/image/loudry2.jpg"
-        },
-        {
-            name: "Deep Cleaning",
-            image: "/image/loudry3.jpg"
-        },
-        {
-            name: "Move In/Move Out",
-            image: "/image/loudry5.jpg"
-        },
-        {
-            name: "Post-Construction",
-            image: "/image/house1.jpg"
-        },
-        {
-            name: "Window Cleaning",
-            image: "/image/47768237_l.webp"
-        },
-        {
-            name: "Carpet & Upholstery",
-            image: "/image/OIP (3).jpeg"
-        },
-        {
-            name: "Floor Cleaning",
-            image: "/image/faq.png"
-        }
-    ];
+const PopularService: React.FC = () => {
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+    const popularServices = useServices();
 
     return (
-        <div className='px-[20px] lg:px-20 py-20 bg-white flex flex-col gap-[40px]'>
-            <div className='flex flex-row items-center justify-between'>
-                <h1 className='text-[30px] text-primary font-[700]'>Our Popular Services</h1>
-                <a href="/serve" className='flex flex-row gap-[10px] items-center'>
-                    <span className='uppercase text-secondary text-[12px] font-[600]'>explore ALL</span>
+        <div className="px-[20px] lg:px-20 py-20 bg-white flex flex-col gap-[40px]">
+            <div className="flex flex-row items-center justify-between">
+                <h1 className="text-[30px] text-primary font-[700]">Our Popular Services</h1>
+                <a href="/serve" className="flex flex-row gap-[10px] items-center">
+                    <span className="uppercase text-secondary text-[12px] font-[600]">explore ALL</span>
                     <div>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M20 11.9998H4" stroke="#E2B659" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -78,7 +43,7 @@ const PopularService = () => {
             </div>
             <motion.div
                 ref={ref}
-                className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]'
+                className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px]"
                 variants={containerVariants}
                 initial="hidden"
                 animate={inView ? "visible" : "hidden"}
@@ -86,14 +51,14 @@ const PopularService = () => {
                 {popularServices.map((item, index) => (
                     <motion.div
                         key={index}
-                        className='h-[50vh] overflow-hidden rounded-[20px] relative flex items-center justify-center w-full cursor-pointer'
+                        className="h-[50vh] overflow-hidden rounded-[20px] relative flex items-center justify-center w-full cursor-pointer"
                         variants={itemVariants}
                     >
-                        <div className='w-full h-full overflow-hidden'>
-                            <Image src={item.image} alt={item.name} width={1000} height={1000} className='w-full h-full object-cover hover:scale-125 duration-500' />
+                        <div className="w-full h-full overflow-hidden">
+                            <Image src={item.image} alt={item.name} width={1000} height={1000} className="w-full h-full object-cover hover:scale-125 duration-500" />
                         </div>
-                        <a href='/serve/book-service' className='p-3 bg-primary hover:bg-secondary duration-300 left-2 absolute bottom-4 w-[90%] rounded-[12px]'>
-                            <h1 className='text-white font-[400] text-[12px] text-center'>{item.name}</h1>
+                        <a href={`/services?service=${encodeURIComponent(item.id)}`} className="p-3 bg-primary hover:bg-secondary duration-300 left-2 absolute bottom-4 w-[90%] rounded-[12px]">
+                            <h1 className="text-white font-[400] text-[12px] text-center">{item.name}</h1>
                         </a>
                     </motion.div>
                 ))}

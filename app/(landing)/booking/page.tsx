@@ -4,10 +4,41 @@ import { CheckCircle } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { toast } from "sonner";
 import * as Yup from "yup";
+import { useServices } from "@/components/provider/ServicesContext";
+import { useSearchParams } from "next/navigation";
+import Image from 'next/image';
 
 function Booking() {
+  const services = useServices();
+  const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
-  const [selectedService, setSelectedService] = useState<number | null>(0); // Default to first service (id 0)
+  const [selectedService, setSelectedService] = useState<number | null>(null);
+  const [selectedDate, setSelectedDate] = useState<string>(""); // New state for date
+  const [selectedTime, setSelectedTime] = useState<string>(""); // New state for time
+
+  useEffect(() => {
+    // Get service from URL params
+    const serviceParam = searchParams.get('service');
+
+    if (serviceParam) {
+      // Find the service by id (convert serviceParam to a number)
+      const foundService = services.find(
+        service => service.id === parseInt(serviceParam, 10)
+      );
+
+      if (foundService) {
+        setSelectedService(foundService.id);
+        // Also set the service in the form
+        contactFormik.setFieldValue("Service", foundService.id.toString());
+      } else {
+        // Default to first service if not found
+        setSelectedService(services.length > 0 ? services[0].id : null);
+      }
+    } else {
+      // Default to first service if no param
+      setSelectedService(services.length > 0 ? services[0].id : null);
+    }
+  }, [searchParams, services]);
 
   const contactFormik = useFormik({
     initialValues: {
@@ -16,6 +47,8 @@ function Booking() {
       phone: "",
       Service: "",
       message: "",
+      date: "",  // For storing the selected date
+      time: "",  // For storing the selected time
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -23,6 +56,8 @@ function Booking() {
       phone: Yup.string().required("Phone is required"),
       Service: Yup.string().required("Service is required"),
       message: Yup.string().required("Message is required"),
+      date: Yup.string().required("Date is required"), // Date validation
+      time: Yup.string().required("Time is required"), // Time validation
     }),
     onSubmit: async (values, { resetForm }) => {
       setLoading(true);
@@ -49,57 +84,9 @@ function Booking() {
     },
   });
 
-  const services = [
-    {
-      id: 0,
-      name: "Commercial Office Cleaning",
-      description:
-        "Elevate your workplace environment with our professional office cleaning solutions. We combine smart scheduling, advanced cleaning technology, and trained professionals to maintain a pristine, healthy workplace.",
-      features: [
-        "Smart monitoring system for cleaning task management",
-        "Hospital-grade sanitization protocols",
-        "Air quality monitoring and improvement services",
-        "24/7 emergency cleaning response availability",
-      ],
-      startingPrice: 100,
-    },
-    {
-      id: 1,
-      name: "Residential Cleaning",
-      description:
-        "Clean your home with our residential cleaning services. We combine smart scheduling, advanced cleaning technology, and trained professionals to maintain a pristine, healthy living environment.",
-      features: [
-        "Smart monitoring system for cleaning task management",
-        "Hospital-grade sanitization protocols",
-        "Air quality monitoring and improvement services",
-        "24/7 emergency cleaning response availability",
-      ],
-      startingPrice: 80,
-    },
-    {
-      id: 2,
-      name: "Healthcare Cleaning",
-      description:
-        "Clean your hospital with our healthcare cleaning services. We combine smart scheduling, advanced cleaning technology, and trained professionals to maintain a pristine, healthy environment.",
-      features: [
-        "Smart monitoring system for cleaning task management",
-        "Hospital-grade sanitization protocols",
-        "Air quality monitoring and improvement services",
-        "24/7 emergency cleaning response availability",
-      ],
-      startingPrice: 120,
-    },
-  ];
-
   const selectedServiceDetails = services.find(
     (service) => service.id === selectedService
   );
-
-  useEffect(() => {
-    if (selectedService === null) {
-      setSelectedService(0); // Ensure the first service is selected by default
-    }
-  }, [selectedService]);
 
   // Reusable FeaturesList component
   const FeaturesList = () => {
@@ -126,155 +113,196 @@ function Booking() {
             </div>
           ))}
         </div>
+        <div className="mt-6 p-4 bg-gray-50 rounded-xl">
+          <p className="text-sm text-gray-600 mb-2">Starting From</p>
+          <p className="text-2xl font-bold text-gray-900">
+            ${selectedServiceDetails.startingPrice}
+          </p>
+        </div>
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full min-h-screen items-start bg-white mt-12 md:mt-24 px-4 md:px-24 py-12 gap-10">
-      <div className="w-full md:w-1/2 flex flex-col gap-6">
-        <span className="text-2xl max-w-md font-semibold text-gray-800">
-          Book a Service, We deliver
-        </span>
-        <form onSubmit={contactFormik.handleSubmit} className="flex flex-col gap-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <>
+      <div className="relative bg-primary pt-10 md:pt-16 overflow-hidden  flex flex-col items-center justify-center mt-20 md:mt-12">
+        <div className="absolute inset-0 w-full h-full opacity-20">
+          <Image
+            src="/image/background.svg"
+            className="w-full h-full object-cover"
+            alt="background pattern"
+            width={1920}
+            height={1080}
+            priority
+          />
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+            Book A Service
+          </h1>
+          <p className="text-blue-100 text-base md:text-lg">
+            We deliver
+          </p>
+        </div>
+      </div>
+      <div className="flex flex-col md:flex-row w-full min-h-screen items-start bg-white mt-12 md:mt-24 px-4 md:px-24 py-12 gap-10">
+        <div className="w-full md:w-1/2 flex flex-col gap-6">
+          <span className="text-2xl max-w-md font-semibold text-gray-800">
+            Book a Service, We deliver
+          </span>
+          <form onSubmit={contactFormik.handleSubmit} className="flex flex-col gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-semibold text-neutral-600"
+                >
+                  Name
+                </label>
+                <input
+                  name="name"
+                  onChange={contactFormik.handleChange}
+                  value={contactFormik.values.name}
+                  type="text"
+                  placeholder="Enter Name"
+                  className="w-full p-4 rounded-xl bg-gray-100 outline-none"
+                />
+                {contactFormik.touched.name && contactFormik.errors.name && (
+                  <span className="text-xs text-red-500">
+                    {contactFormik.errors.name}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-semibold text-neutral-600"
+                >
+                  Email
+                </label>
+                <input
+                  name="email"
+                  onChange={contactFormik.handleChange}
+                  value={contactFormik.values.email}
+                  type="email"
+                  placeholder="Enter Email"
+                  className="w-full p-4 rounded-xl bg-gray-100 outline-none"
+                />
+                {contactFormik.touched.email && contactFormik.errors.email && (
+                  <span className="text-xs text-red-500">
+                    {contactFormik.errors.email}
+                  </span>
+                )}
+              </div>
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="phone"
+                  className="text-sm font-semibold text-neutral-600"
+                >
+                  Phone
+                </label>
+                <input
+                  name="phone"
+                  onChange={contactFormik.handleChange}
+                  value={contactFormik.values.phone}
+                  type="tel"
+                  placeholder="Enter Phone"
+                  className="w-full p-4 rounded-xl bg-gray-100 outline-none"
+                />
+                {contactFormik.touched.phone && contactFormik.errors.phone && (
+                  <span className="text-xs text-red-500">
+                    {contactFormik.errors.phone}
+                  </span>
+                )}
+              </div>
+              {/* Date Picker */}
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="date"
+                  className="text-sm font-semibold text-neutral-600"
+                >
+                  Date
+                </label>
+                <input
+                  name="date"
+                  type="date"
+                  onChange={contactFormik.handleChange}
+                  value={contactFormik.values.date}
+                  className="w-full p-4 rounded-xl bg-gray-100 outline-none"
+                />
+                {contactFormik.touched.date && contactFormik.errors.date && (
+                  <span className="text-xs text-red-500">
+                    {contactFormik.errors.date}
+                  </span>
+                )}
+              </div>
+              {/* Time Picker */}
+              <div className="flex flex-col gap-1">
+                <label
+                  htmlFor="time"
+                  className="text-sm font-semibold text-neutral-600"
+                >
+                  Time
+                </label>
+                <input
+                  name="time"
+                  type="time"
+                  onChange={contactFormik.handleChange}
+                  value={contactFormik.values.time}
+                  className="w-full p-4 rounded-xl bg-gray-100 outline-none"
+                />
+                {contactFormik.touched.time && contactFormik.errors.time && (
+                  <span className="text-xs text-red-500">
+                    {contactFormik.errors.time}
+                  </span>
+                )}
+              </div>
+            </div>
+            {/* Mobile: Display features immediately after select dropdown */}
+            <div className="block md:hidden">
+              <FeaturesList />
+            </div>
             <div className="flex flex-col gap-1">
               <label
-                htmlFor="name"
+                htmlFor="message"
                 className="text-sm font-semibold text-neutral-600"
               >
-                Name
+                Message
               </label>
-              <input
-                name="name"
+              <textarea
+                name="message"
                 onChange={contactFormik.handleChange}
-                value={contactFormik.values.name}
-                type="text"
-                placeholder="Enter Name"
+                value={contactFormik.values.message}
+                rows={4}
+                placeholder="Message"
                 className="w-full p-4 rounded-xl bg-gray-100 outline-none"
               />
-              {contactFormik.touched.name && contactFormik.errors.name && (
+              {contactFormik.touched.message && contactFormik.errors.message && (
                 <span className="text-xs text-red-500">
-                  {contactFormik.errors.name}
+                  {contactFormik.errors.message}
                 </span>
               )}
             </div>
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="email"
-                className="text-sm font-semibold text-neutral-600"
-              >
-                Email
-              </label>
-              <input
-                name="email"
-                onChange={contactFormik.handleChange}
-                value={contactFormik.values.email}
-                type="email"
-                placeholder="Enter Email"
-                className="w-full p-4 rounded-xl bg-gray-100 outline-none"
-              />
-              {contactFormik.touched.email && contactFormik.errors.email && (
-                <span className="text-xs text-red-500">
-                  {contactFormik.errors.email}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="phone"
-                className="text-sm font-semibold text-neutral-600"
-              >
-                Phone
-              </label>
-              <input
-                name="phone"
-                onChange={contactFormik.handleChange}
-                value={contactFormik.values.phone}
-                type="number"
-                placeholder="Enter Phone"
-                className="w-full p-4 rounded-xl bg-gray-100 outline-none"
-              />
-              {contactFormik.touched.phone && contactFormik.errors.phone && (
-                <span className="text-xs text-red-500">
-                  {contactFormik.errors.phone}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-1">
-              <label
-                htmlFor="Service"
-                className="text-sm font-semibold text-neutral-600"
-              >
-                Service
-              </label>
-              <select
-                name="Service"
-                onChange={(e) => {
-                  setSelectedService(Number(e.target.value));
-                  contactFormik.handleChange(e);
-                }}
-                value={contactFormik.values.Service}
-                className="w-full p-4 rounded-xl bg-gray-100 outline-none"
-              >
-                <option value="">Select Service</option>
-                {services.map((service) => (
-                  <option key={service.id} value={service.id}>
-                    {service.name}
-                  </option>
-                ))}
-              </select>
-              {contactFormik.touched.Service && contactFormik.errors.Service && (
-                <span className="text-xs text-red-500">
-                  {contactFormik.errors.Service}
-                </span>
-              )}
-            </div>
-          </div>
-          {/* Mobile: Display features immediately after select dropdown */}
-          <div className="block md:hidden">
-            <FeaturesList />
-          </div>
-          <div className="flex flex-col gap-1">
-            <label
-              htmlFor="message"
-              className="text-sm font-semibold text-neutral-600"
+            <button
+              type="submit"
+              className="w-full p-4 rounded-xl bg-primary text-white"
             >
-              Message
-            </label>
-            <textarea
-              name="message"
-              onChange={contactFormik.handleChange}
-              value={contactFormik.values.message}
-              rows={4}
-              placeholder="Message"
-              className="w-full p-4 rounded-xl bg-gray-100 outline-none"
-            />
-            {contactFormik.touched.message && contactFormik.errors.message && (
-              <span className="text-xs text-red-500">
-                {contactFormik.errors.message}
-              </span>
-            )}
-          </div>
-          <button
-            type="submit"
-            className="w-full p-4 rounded-xl bg-primary text-white"
-          >
-            {loading ? (
-              <span className="text-sm font-semibold">Sending...</span>
-            ) : (
-              <span className="text-sm font-semibold">
-                Send book request
-              </span>
-            )}
-          </button>
-        </form>
+              {loading ? (
+                <span className="text-sm font-semibold">Sending...</span>
+              ) : (
+                <span className="text-sm font-semibold">
+                  Send book request
+                </span>
+              )}
+            </button>
+          </form>
+        </div>
+        {/* Desktop: Display features on the right side */}
+        <div className="w-full md:w-1/2 hidden md:flex md:flex-col md:justify-between md:h-full">
+          <FeaturesList />
+        </div>
       </div>
-      {/* Desktop: Display features on the right side */}
-      <div className="w-full md:w-1/2 hidden md:block mt-8">
-        <FeaturesList />
-      </div>
-    </div>
+    </>
   );
 }
 
