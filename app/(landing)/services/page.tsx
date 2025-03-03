@@ -8,17 +8,38 @@ import 'slick-carousel/slick/slick-theme.css'
 import { motion } from 'framer-motion'
 import { useServices } from '@/components/provider/ServicesContext'
 import { useSearchParams } from 'next/navigation'
-import { RiLoader3Line } from 'react-icons/ri'
 
-const Services = () => {
-    const services = useServices();
+interface Service {
+  id: number;
+  name: string;
+  description: string;
+  startingPrice: number;
+  image: string;
+  features: string[];
+}
+
+const Services: React.FC = () => {
+    const services = useServices() as Service[];
     const searchParams = useSearchParams();
-    const [currentService, setCurrentService] = useState(services[0]);
-    const [sliderRef, setSliderRef] = useState(null);
-    const [isLoading, setIsLoading] = useState(false);
-    const [scrolling, setScrolling] = useState(false);
+    const [currentService, setCurrentService] = useState<Service | null>(null);
+    const [sliderRef, setSliderRef] = useState<Slider | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [scrolling, setScrolling] = useState<boolean>(false);
 
-    const settings = {
+    const settings: {
+        infinite: boolean;
+        speed: number;
+        slidesToShow: number;
+        slidesToScroll: number;
+        arrows: boolean;
+        swipe: boolean;
+        responsive: Array<{
+            breakpoint: number;
+            settings: {
+                slidesToShow: number;
+            };
+        }>;
+    } = {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -41,8 +62,17 @@ const Services = () => {
         ],
     };
 
+    // Set initial service once services are available
     useEffect(() => {
-        // Apply param logic: get service from URL and update current service accordingly
+        if (services.length > 0 && !currentService) {
+            setCurrentService(services[0]);
+        }
+    }, [services, currentService]);
+
+    // Handle URL param
+    useEffect(() => {
+        if (!searchParams || !services.length) return;
+        
         const serviceParam = searchParams.get("service");
         if (serviceParam) {
             const foundService = services.find(
@@ -55,13 +85,8 @@ const Services = () => {
     }, [searchParams, services]);
 
     useEffect(() => {
-        // Scroll detection
-        const handleScroll = () => {
-            if (window.scrollY > 100) {
-                setScrolling(true);
-            } else {
-                setScrolling(false);
-            }
+        const handleScroll = (): void => {
+            setScrolling(window.scrollY > 100);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -70,27 +95,35 @@ const Services = () => {
         };
     }, []);
 
-    const handleServiceChange = (service) => {
+    const handleServiceChange = (service: Service): void => {
         setIsLoading(true);
 
-        // Simulate loading delay (remove this in production if you don't need it)
         setTimeout(() => {
             setCurrentService(service);
             setIsLoading(false);
 
-            // Scroll to the top of the page, not just the service section
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-        }, 800); // Adjust loading time as needed
+        }, 800);
     };
 
-    // Filter out the current service and randomize the order of other services
     const otherServices = useMemo(() => {
+        if (!currentService || !services.length) return [];
+        
         const filtered = services.filter(service => service.name !== currentService.name);
         return [...filtered].sort(() => Math.random() - 0.5);
     }, [services, currentService]);
+
+    // Loading state while services or current service aren't available
+    if (!services.length || !currentService) {
+        return (
+            <div className="w-full h-[50vh] flex items-center justify-center">
+                <Loader className="w-10 h-10 text-primary animate-spin" />
+            </div>
+        );
+    }
 
     return (
         <section className="w-full bg-gray-50 mt-12">
@@ -136,6 +169,7 @@ const Services = () => {
                             <a href={`/booking?service=${encodeURIComponent(currentService.id)}`}>
                                 <button
                                     className="flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+                                    type="button"
                                 >
                                     Book Now
                                     <ArrowRight className="w-5 h-5" />
@@ -184,14 +218,16 @@ const Services = () => {
                                 <Loader className="w-10 h-10 text-primary animate-spin" />
                             </div>
                         ) : (
-                            <Slider ref={slider => setSliderRef(slider)} {...settings}>
+                            <Slider ref={(slider: Slider | null) => setSliderRef(slider)} {...settings}>
                                 {otherServices.map((service, index) => (
                                     <motion.div
                                         key={index}
                                         className="px-2"
                                     >
-                                        <div className="h-[40vh] overflow-hidden rounded-xl relative flex items-center justify-center cursor-pointer group"
-                                            onClick={() => handleServiceChange(service)}>
+                                        <div 
+                                            className="h-[40vh] overflow-hidden rounded-xl relative flex items-center justify-center cursor-pointer group"
+                                            onClick={() => handleServiceChange(service)}
+                                        >
                                             <div className="w-full h-full overflow-hidden">
                                                 <Image
                                                     src={service.image}
@@ -218,6 +254,7 @@ const Services = () => {
                                 onClick={() => sliderRef?.slickPrev()}
                                 className="p-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
                                 aria-label="Previous slide"
+                                type="button"
                             >
                                 <ChevronLeft className="w-6 h-6" />
                             </button>
@@ -225,6 +262,7 @@ const Services = () => {
                                 onClick={() => sliderRef?.slickNext()}
                                 className="p-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors"
                                 aria-label="Next slide"
+                                type="button"
                             >
                                 <ChevronRight className="w-6 h-6" />
                             </button>
