@@ -1,7 +1,7 @@
-'use client'
+"use client"
 import { useFormik } from "formik";
 import { CheckCircle } from "lucide-react";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { toast } from "sonner";
 import * as Yup from "yup";
 import { useServices } from "@/components/provider/ServicesContext";
@@ -15,7 +15,7 @@ function Booking() {
   const [selectedService, setSelectedService] = useState<number | null>(null);
 
   useEffect(() => {
-    // Use optional chaining to safely access searchParams
+    // Safely access searchParams using optional chaining
     const serviceParam = searchParams?.get('service');
     if (serviceParam) {
       const foundService = services.find(
@@ -56,12 +56,9 @@ function Booking() {
       try {
         const response = await fetch("/api/contact", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(values),
         });
-
         if (!response.ok) {
           throw new Error("Failed to send message");
         }
@@ -271,4 +268,11 @@ function Booking() {
   );
 }
 
-export default Booking;
+// Wrap Booking in a Suspense boundary to satisfy useSearchParams requirements
+const BookingWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Booking />
+  </Suspense>
+);
+
+export default BookingWithSuspense;

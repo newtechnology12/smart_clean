@@ -1,6 +1,6 @@
 "use client"
+import React, { useState, useEffect, useMemo, Suspense } from 'react'
 import Image from 'next/image'
-import React, { useState, useEffect, useMemo } from 'react'
 import { ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Loader } from 'lucide-react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -26,20 +26,7 @@ const Services: React.FC = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [scrolling, setScrolling] = useState<boolean>(false);
 
-    const settings: {
-        infinite: boolean;
-        speed: number;
-        slidesToShow: number;
-        slidesToScroll: number;
-        arrows: boolean;
-        swipe: boolean;
-        responsive: Array<{
-            breakpoint: number;
-            settings: {
-                slidesToShow: number;
-            };
-        }>;
-    } = {
+    const settings = {
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -47,18 +34,8 @@ const Services: React.FC = () => {
         arrows: false,
         swipe: true,
         responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 2,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                },
-            },
+            { breakpoint: 1024, settings: { slidesToShow: 2 } },
+            { breakpoint: 600, settings: { slidesToShow: 1 } },
         ],
     };
 
@@ -88,7 +65,6 @@ const Services: React.FC = () => {
         const handleScroll = (): void => {
             setScrolling(window.scrollY > 100);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -97,26 +73,19 @@ const Services: React.FC = () => {
 
     const handleServiceChange = (service: Service): void => {
         setIsLoading(true);
-
         setTimeout(() => {
             setCurrentService(service);
             setIsLoading(false);
-
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }, 800);
     };
 
     const otherServices = useMemo(() => {
         if (!currentService || !services.length) return [];
-        
         const filtered = services.filter(service => service.name !== currentService.name);
         return [...filtered].sort(() => Math.random() - 0.5);
     }, [services, currentService]);
 
-    // Loading state while services or current service aren't available
     if (!services.length || !currentService) {
         return (
             <div className="w-full h-[50vh] flex items-center justify-center">
@@ -153,7 +122,6 @@ const Services: React.FC = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 {/* Selected Service Section */}
                 <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-                    {/* Left Column - Title, Description, and Book Now */}
                     <div className="flex flex-col justify-between h-full">
                         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4">
                             {currentService.name}
@@ -178,7 +146,6 @@ const Services: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Right Column - Image and Features */}
                     <div className="space-y-8">
                         <Image
                             src={currentService.image}
@@ -187,7 +154,6 @@ const Services: React.FC = () => {
                             height={400}
                             className="object-cover rounded-xl w-full shadow-lg"
                         />
-
                         <div className="space-y-4">
                             <h3 className="text-xl font-semibold text-gray-900">
                                 {currentService.name} Features
@@ -211,7 +177,6 @@ const Services: React.FC = () => {
                     <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
                         Other Popular Options
                     </h3>
-
                     <div className="relative">
                         {isLoading ? (
                             <div className="absolute inset-0 flex items-center justify-center z-10 h-full w-full">
@@ -220,10 +185,7 @@ const Services: React.FC = () => {
                         ) : (
                             <Slider ref={(slider: Slider | null) => setSliderRef(slider)} {...settings}>
                                 {otherServices.map((service, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="px-2"
-                                    >
+                                    <motion.div key={index} className="px-2">
                                         <div 
                                             className="h-[40vh] overflow-hidden rounded-xl relative flex items-center justify-center cursor-pointer group"
                                             onClick={() => handleServiceChange(service)}
@@ -247,8 +209,6 @@ const Services: React.FC = () => {
                                 ))}
                             </Slider>
                         )}
-
-                        {/* Custom Carousel Navigation Buttons */}
                         <div className="flex justify-center items-center gap-6 mt-8">
                             <button
                                 onClick={() => sliderRef?.slickPrev()}
@@ -272,6 +232,13 @@ const Services: React.FC = () => {
             </div>
         </section>
     );
-};
+}
 
-export default Services;
+// Wrap Services in a Suspense boundary to satisfy useSearchParams requirements
+const ServicesWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Services />
+  </Suspense>
+);
+
+export default ServicesWithSuspense;
