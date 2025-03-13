@@ -13,29 +13,21 @@ function Booking() {
   const searchParams = useSearchParams();
   const [loading, setLoading] = useState(false);
   const [selectedService, setSelectedService] = useState<number | null>(null);
-  const [selectedDate, setSelectedDate] = useState<string>(""); // New state for date
-  const [selectedTime, setSelectedTime] = useState<string>(""); // New state for time
 
   useEffect(() => {
-    // Get service from URL params
-    const serviceParam = searchParams.get('service');
-
+    // Use optional chaining to safely access searchParams
+    const serviceParam = searchParams?.get('service');
     if (serviceParam) {
-      // Find the service by id (convert serviceParam to a number)
       const foundService = services.find(
         service => service.id === parseInt(serviceParam, 10)
       );
-
       if (foundService) {
         setSelectedService(foundService.id);
-        // Also set the service in the form
         contactFormik.setFieldValue("Service", foundService.id.toString());
       } else {
-        // Default to first service if not found
         setSelectedService(services.length > 0 ? services[0].id : null);
       }
     } else {
-      // Default to first service if no param
       setSelectedService(services.length > 0 ? services[0].id : null);
     }
   }, [searchParams, services]);
@@ -47,8 +39,8 @@ function Booking() {
       phone: "",
       Service: "",
       message: "",
-      date: "",  // For storing the selected date
-      time: "",  // For storing the selected time
+      date: "",
+      time: "",
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Name is required"),
@@ -56,8 +48,8 @@ function Booking() {
       phone: Yup.string().required("Phone is required"),
       Service: Yup.string().required("Service is required"),
       message: Yup.string().required("Message is required"),
-      date: Yup.string().required("Date is required"), // Date validation
-      time: Yup.string().required("Time is required"), // Time validation
+      date: Yup.string().required("Date is required"),
+      time: Yup.string().required("Time is required"),
     }),
     onSubmit: async (values, { resetForm }) => {
       setLoading(true);
@@ -125,7 +117,7 @@ function Booking() {
 
   return (
     <>
-      <div className="relative bg-primary pt-10 md:pt-16 overflow-hidden  flex flex-col items-center justify-center mt-20 md:mt-12">
+      <div className="relative bg-primary pt-10 md:pt-16 overflow-hidden flex flex-col items-center justify-center mt-20 md:mt-12">
         <div className="absolute inset-0 w-full h-full opacity-20">
           <Image
             src="/image/background.svg"
@@ -153,10 +145,7 @@ function Booking() {
           <form onSubmit={contactFormik.handleSubmit} className="flex flex-col gap-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-1">
-                <label
-                  htmlFor="name"
-                  className="text-sm font-semibold text-neutral-600"
-                >
+                <label htmlFor="name" className="text-sm font-semibold text-neutral-600">
                   Name
                 </label>
                 <input
@@ -174,10 +163,7 @@ function Booking() {
                 )}
               </div>
               <div className="flex flex-col gap-1">
-                <label
-                  htmlFor="email"
-                  className="text-sm font-semibold text-neutral-600"
-                >
+                <label htmlFor="email" className="text-sm font-semibold text-neutral-600">
                   Email
                 </label>
                 <input
@@ -195,10 +181,7 @@ function Booking() {
                 )}
               </div>
               <div className="flex flex-col gap-1">
-                <label
-                  htmlFor="phone"
-                  className="text-sm font-semibold text-neutral-600"
-                >
+                <label htmlFor="phone" className="text-sm font-semibold text-neutral-600">
                   Phone
                 </label>
                 <input
@@ -215,12 +198,8 @@ function Booking() {
                   </span>
                 )}
               </div>
-              {/* Date Picker */}
               <div className="flex flex-col gap-1">
-                <label
-                  htmlFor="date"
-                  className="text-sm font-semibold text-neutral-600"
-                >
+                <label htmlFor="date" className="text-sm font-semibold text-neutral-600">
                   Date
                 </label>
                 <input
@@ -236,12 +215,8 @@ function Booking() {
                   </span>
                 )}
               </div>
-              {/* Time Picker */}
               <div className="flex flex-col gap-1">
-                <label
-                  htmlFor="time"
-                  className="text-sm font-semibold text-neutral-600"
-                >
+                <label htmlFor="time" className="text-sm font-semibold text-neutral-600">
                   Time
                 </label>
                 <input
@@ -258,15 +233,11 @@ function Booking() {
                 )}
               </div>
             </div>
-            {/* Mobile: Display features immediately after select dropdown */}
             <div className="block md:hidden">
               <FeaturesList />
             </div>
             <div className="flex flex-col gap-1">
-              <label
-                htmlFor="message"
-                className="text-sm font-semibold text-neutral-600"
-              >
+              <label htmlFor="message" className="text-sm font-semibold text-neutral-600">
                 Message
               </label>
               <textarea
@@ -283,21 +254,15 @@ function Booking() {
                 </span>
               )}
             </div>
-            <button
-              type="submit"
-              className="w-full p-4 rounded-xl bg-primary text-white"
-            >
+            <button type="submit" className="w-full p-4 rounded-xl bg-primary text-white">
               {loading ? (
                 <span className="text-sm font-semibold">Sending...</span>
               ) : (
-                <span className="text-sm font-semibold">
-                  Send book request
-                </span>
+                <span className="text-sm font-semibold">Send book request</span>
               )}
             </button>
           </form>
         </div>
-        {/* Desktop: Display features on the right side */}
         <div className="w-full md:w-1/2 hidden md:flex md:flex-col md:justify-between md:h-full">
           <FeaturesList />
         </div>
