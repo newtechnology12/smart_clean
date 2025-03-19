@@ -17,7 +17,7 @@ const HowItWorks = () => {
                         priority 
                     />
                 </div>
-                <div className="relative max-w-4xl mx-auto text-center px-4 mt-76 sm:px-6 lg:px-8">
+                <div className="relative max-w-4xl mx-auto text-center px-4 mt-76 sm:px-6 lg:px-8 py-20">
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                         How It Works
                     </h1>

@@ -6,9 +6,47 @@ const AboutUs = () => {
     return (
         <section className="relative bg-gray-50">
             {/* Main container with proper spacing and overflow control */}
-            <div className="container mx-auto min-h-screen overflow-x-hidden">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24">
+            <div className=" min-h-screen overflow-x-hidden">
+                {/* Hero Section with improved layout */}
+                <div className="relative min-h-screen p-10 rounded-b-2xl overflow-hidden flex items-center justify-center  bg-gradient-to-b to-primary from-50%  from-primary/30">
+                    <div className="overlay-bg absolute top-0 bottom-0 left-0 right-0 z-0  bg-[url('/image/background.svg')] bg-cover bg-center bg-no-repeat"></div>
+                    <div className="text-center z-10">
+                        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                            About Smart Clean
+                        </h1>
+                        <p className="text-base md:text-lg text-gray-600 my-10">
+                            Discover the difference of our professional cleaning services, 
+                            designed to deliver exceptional cleanliness and customer satisfaction.
+                        </p>
+                        <div className="bg-primary/20 rounded-xl shadow-md p-4 md:p-6 mb-6 inline-block">
+                            <h3 className="text-xl md:text-2xl font-bold text-gray-900 flex max-sm:flex-wrap items-center justify-center relative">
+                                <div className="flex items-center justify-center relative">
+                                    <span className="h-10 w-10 rounded-full bg-[url('/image/user1.jpg')] bg-center bg-cover border-2 border-primary absolute left-8"></span>
+                                    <span className="h-10 w-10 rounded-full bg-[url('/image/user2.jpg')] bg-center bg-cover border-2 border-primary me-5"></span> 
+                                    <span className="h-10 w-10 rounded-full bg-[url('/image/user3.png')] bg-center bg-cover border-2 border-primary me-2"></span>
+                                </div>
+                                100+ Satisfied Customers
+                            </h3>
+                            <p className="text-base md:text-lg text-gray-600">
+                                We have proudly served over 100 customers with our top-notch cleaning services.
+                            </p>
+                        </div>
+                        <div className="mt-5">
+                        <Link 
+                            href="/services" 
+                            className="inline-block bg-primary text-white px-6 py-3 rounded-xl 
+                                     text-base md:text-lg font-medium hover:opacity-90 
+                                     transition-opacity shadow-md"
+                        >
+                            View Our Services
+                        </Link>
+                        </div>
+                    </div>
+                </div>
+                
+                <div className="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8 pt-20 pb-24">
                     {/* Header Section with improved spacing */}
+                    
                     <div className="text-center max-w-3xl mx-auto mb-20 px-4">
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                             Smart Clean Excellence
@@ -24,7 +62,7 @@ const AboutUs = () => {
                     <div className="mb-20 px-4">
                         <div className="relative w-full h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg">
                             <Image 
-                                src="/image/clean.jfif"
+                                src="/image/faq.png"
                                 fill
                                 alt="Professional cleaning services"
                                 className="object-cover"
@@ -34,7 +72,7 @@ const AboutUs = () => {
                     </div>
 
                     {/* How We Work Section with better spacing */}
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-20 px-4">
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-20 p-5 bg-slate-200 rounded-2xl p-8">
                         <div className="space-y-6">
                             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                                 Our Professional Approach
