@@ -41,12 +41,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  
   return (
     <>
       <div
-        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-1 backdrop-blur-sm bg-white/10 flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
+        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-1 backdrop-blur-sm flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
           isScrollingUp ? "translate-y-0" : "-translate-y-full"
-        }`}
+        } ${isActive ? "bg-primary" : "bg-white/10"}`}
       >
         <a href="/" className="rounded-[8px] bg-white px-2 font-[700]">
           <Image
@@ -84,7 +85,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div onClick={() => setIsActive(!isActive)} className="flex md:hidden">
-          <span className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[30px] cursor-pointer`}>
+          <span className={`${isOnWhiteBackground ? "text-primary" : "text-white"} ${isActive ? "text-white" : ""} text-[30px] cursor-pointer`}>
             {!isActive ? <FaBars /> : <IoClose />}
           </span>
         </div>
@@ -92,31 +93,36 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
+        id="mobileNav"
         className={`w-full bg-primary overflow-hidden mt-[10vh] ${
           isActive ? "h-screen border-t-[4px]" : "h-[0px] border-t-[0px]"
         } duration-300 transition-all fixed z-30`}
       >
-        <div className="flex flex-col gap-[50px] py-5 px-10">
+        <div className="flex flex-col gap-[50px] py-10 px-10">
           <Link
             href="/"
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            onClick={()=>setIsActive(false)}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             Home
           </Link>
           <Link
             href="/HowItWorks"
+            onClick={()=>setIsActive(false)}
             className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             How It Works
           </Link>
           <Link
             href="/services"
+            onClick={()=>setIsActive(false)}
             className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             Services
           </Link>
           <Link
             href="/aboutus"
+            onClick={()=>setIsActive(false)}
             className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             About Us

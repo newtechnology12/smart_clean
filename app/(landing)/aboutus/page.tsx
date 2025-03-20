@@ -72,7 +72,7 @@ const AboutUs = () => {
                     </div>
 
                     {/* How We Work Section with better spacing */}
-                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-20 p-5 bg-slate-200 rounded-2xl p-8">
+                    <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start mb-20 bg-slate-200 rounded-2xl p-8">
                         <div className="space-y-6">
                             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">
                                 Our Professional Approach
