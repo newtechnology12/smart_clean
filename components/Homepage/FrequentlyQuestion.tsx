@@ -6,26 +6,31 @@ const FrequentlyQuestion = () => {
     const [openedFa, setOpenedFa] = useState<number | null>(null)
     const faquestion = [
         {
-            question: "How do I book a cleaning service?",
-            answer: "Visit our  app, choose your service, select a date and time, and complete the booking. You'll get a confirmation email."
+            question: "How do I book a cleaning service in Kigali?",
+            answer: "To book a cleaning service in Kigali, visit our app, choose your service, select the date and time, and confirm your booking. You can also call our customer service for assistance."
         },
         {
             question: "What types of cleaning services do you offer?",
-            answer: "Visit our  app, choose your service, select a date and time, and complete the booking. You'll get a confirmation email."
+            answer: "We offer a variety of cleaning services including residential cleaning, commercial cleaning, deep cleaning, carpet cleaning, and window cleaning. For more details, visit our services page."
         },
         {
-            question: "What types of cleaning services do you offer?",
-            answer: "Visit our  app, choose your service, select a date and time, and complete the booking. You'll get a confirmation email."
+            question: "Are your cleaning products eco-friendly?",
+            answer: "Yes, we use eco-friendly and non-toxic cleaning products to ensure the safety of your family and pets. Learn more about our green cleaning practices on our website."
         },
         {
-            question: "What types of cleaning services do you offer?",
-            answer: "Visit our  app, choose your service, select a date and time, and complete the booking. You'll get a confirmation email."
+            question: "Do I need to be home during the cleaning?",
+            answer: "No, you do not need to be home during the cleaning. Our professional cleaners are trustworthy and trained to work independently. However, you can choose to be present if you prefer."
         },
         {
-            question: "What types of cleaning services do you offer?",
-            answer: "Visit our  app, choose your service, select a date and time, and complete the booking. You'll get a confirmation email."
+            question: "How can I reschedule or cancel a booking?",
+            answer: "You can reschedule or cancel your booking through our app or by contacting our customer service at least 24 hours in advance. For more information, refer to our cancellation policy."
         },
-    ]
+        {
+            question: "What should I do if I am not satisfied with the cleaning service?",
+            answer: "If you are not satisfied with our cleaning service, please contact our customer service within 24 hours. We will address your concerns and arrange a re-clean if necessary. Your satisfaction is our priority."
+        }
+    ];
+
     return (
         <div className=' bg-[#FAFAFA] w-full py-10 px-[20px] md:px-10 lg:px-20 flex flex-col gap-[20px]'>
             <div className='flex flex-col lg:flex-row gap-[20px] justify-between items-end'>
@@ -39,7 +44,7 @@ const FrequentlyQuestion = () => {
 
             </div>
             <div className='flex flex-col lg:flex-row gap-[30px] w-full'>
-                <div className='w-full lg:w-1/2 flex flex-col gap-[20px]'>
+                <div className='w-full lg:w-1/2 flex flex-col gap-3'>
                     {faquestion.map((item: any, index: number) => {
                         return (
                             <div key={index} className='flex flex-col gap-[4px] p-4 rounded-[12px] bg-white w-full'>

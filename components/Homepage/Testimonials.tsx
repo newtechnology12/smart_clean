@@ -9,27 +9,27 @@ const Testimonials = () => {
   const testimonials = [
     {
       title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      desc: "The residential cleaning service was exceptional! The team was professional, thorough, and left my home spotless. I couldn't be happier with the results and will definitely use their services again."
     },
     {
-      title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      title: "Manzi Tinabi",
+      desc: "I recently used their move-in cleaning service, and it was fantastic. They made sure every corner of my new home was clean and ready for us to move in. Highly satisfied with their attention to detail."
     },
     {
-      title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      title: "Mugisha Deo",
+      desc: "Their floor cleaning service is top-notch. My hardwood floors have never looked better. The team was efficient and used high-quality products. I highly recommend their services."
     },
     {
-      title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      title: "Kasuki Ltd",
+      desc: "We hired them for our office cleaning, and they did an amazing job. The office looks pristine, and the staff is very friendly and professional. We are very satisfied with their service."
     },
     {
-      title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      title: "Omosabe Gmbz Corp.",
+      desc: "Their deep cleaning service exceeded my expectations. They cleaned areas I didn't even think of, and the whole house feels fresh and clean. I am extremely pleased with their work."
     },
     {
-      title: "Yvonne Mbabazi",
-      desc: "As a student, finding reliable educational resources online can be overwhelming. Luckily, I found this website, and it's been a goldmine of knowledge. The tutorials and guides have helped me ace my exams and deepen my understanding of various subjects. Highly recommend!"
+      title: "Kigali Convention Center",
+      desc: "We used their event cleaning service, and it was outstanding. They ensured the venue was spotless before and after the event. Their team is reliable and efficient. Highly recommend!"
     },
   ];
 
@@ -81,10 +81,28 @@ const Testimonials = () => {
         >
           {testimonials.map((testimonial, index) => (
             <SwiperSlide key={index}>
-              <div className="p-5  bg-gray-50 rounded-lg">
+              <div className="p-5  bg-gray-50 rounded-lg shadow-lg border">
                 <h3 className="font-bold ">{testimonial.title}</h3>
-                <span className="text-[12px] text-gray-500">Student</span>
+                <span className="text-[12px] text-gray-500">Client</span>
                 <p className="text-[12px] text-black font-[400]">{testimonial.desc}</p>
+                <span className="text-[12px] text-gray-500 flex justify-end">
+                    <div className="flex">
+                    {[...Array(3)].map((_, i) => (
+                      <svg
+                      key={i}
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      className="w-4 h-4 text-secondary"
+                      >
+                      <path
+                        d="M12 17.25l-3.5 2.25 1-4.25-3.5-3 4.5-.25L12 7.5l1.5 4.5 4.5.25-3.5 3 1 4.25L12 17.25z"
+                      />
+                      </svg>
+                    ))}
+                    </div>
+                  {index + 1} of {testimonials.length}
+                </span>
               </div>
             </SwiperSlide>
           ))}
