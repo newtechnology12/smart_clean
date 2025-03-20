@@ -109,21 +109,21 @@ const Navbar = () => {
           <Link
             href="/HowItWorks"
             onClick={()=>setIsActive(false)}
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             How It Works
           </Link>
           <Link
             href="/services"
             onClick={()=>setIsActive(false)}
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             Services
           </Link>
           <Link
             href="/aboutus"
             onClick={()=>setIsActive(false)}
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             About Us
           </Link>
