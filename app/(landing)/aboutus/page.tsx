@@ -8,7 +8,7 @@ const AboutUs = () => {
             {/* Main container with proper spacing and overflow control */}
             <div className=" min-h-screen overflow-x-hidden">
                 {/* Hero Section with improved layout */}
-                <div className="relative min-h-screen p-10 rounded-b-2xl overflow-hidden flex items-center justify-center  bg-gradient-to-b to-primary from-50%  from-primary/30">
+                <div className="relative min-h-screen p-10 max-sm:pt-32 rounded-b-2xl overflow-hidden flex items-center justify-center  bg-gradient-to-b to-primary from-50%  from-primary/30">
                     <div className="overlay-bg absolute top-0 bottom-0 left-0 right-0 z-0  bg-[url('/image/background.svg')] bg-cover bg-center bg-no-repeat"></div>
                     <div className="text-center z-10">
                         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
