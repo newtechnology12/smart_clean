@@ -45,18 +45,20 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-1 backdrop-blur-sm flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
+        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-3 backdrop-blur-sm flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
           isScrollingUp ? "translate-y-0" : "-translate-y-full"
         } ${isActive ? "bg-primary" : "bg-white/10"}`}
       >
-        <a href="/" className="rounded-[8px] bg-white px-2 font-[700]">
-          <Image
-            src={`/image/smartclean.png`}
-            width={1000}
-            height={1000}
-            className="w-[80px]"
-            alt="logo"
-          />
+        <a href="/" className="rounded-[8px] bg-blue-50 px-2 font-[700]">
+            <div className="w-16 h-16 overflow-hidden rounded-full relative flex-shrink-0 flex items-center justify-center">
+              <img
+                src={`/image/smartclean.png`}
+                width={300}
+                height={300}
+                className="w-24 h-24 object-cover"
+                alt="logo"
+              />
+            </div>
         </a>
         <div className="flex-row gap-[50px] items-center hidden md:flex">
           <Link
