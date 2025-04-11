@@ -6,7 +6,7 @@ import JoinOurNetwork from "@/components/Homepage/JoinOurNetwork";
 import OurMobileApp from "@/components/Homepage/OurMobileApp";
 import PopularService from "@/components/Homepage/PopularService";
 import Services from "@/components/Homepage/Services";
-import Testimonials from "@/components/Homepage/Testimonials";
+// import Testimonials from "@/components/Homepage/Testimonials";
 import Image from "next/image";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -59,7 +59,7 @@ export default function Home() {
       <HeroSection />
       <PopularService />
       <JoinOurNetwork />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <OurMobileApp />
       <div id="contact" className="w-full flex flex-col gap-[40px] bg-[#fbfbfb] px-[10px] md:px-[50px] lg:px-[100px] py-[50px]">
         <div className="text-[12px] flex flex-col w-[120px] items-center justify-center p-2 bg-[#000] text-[#fff] rounded-[8px]">Contact Us</div>
