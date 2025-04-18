@@ -15,37 +15,37 @@ const Navbar = () => {
   const lastScrollY = useRef(0);
   const scrollThreshold = 50; // Increased distance before showing navbar again
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
 
-      // Detect scrolling direction
-      if (currentScrollY < lastScrollY.current - scrollThreshold || currentScrollY < 50) {
-        setIsScrollingUp(true);
-      } else if (currentScrollY > lastScrollY.current + 20) {
-        setIsScrollingUp(false);
-      }
+  //     // Detect scrolling direction
+  //     if (currentScrollY < lastScrollY.current - scrollThreshold || currentScrollY < 50) {
+  //       setIsScrollingUp(true);
+  //     } else if (currentScrollY > lastScrollY.current + 20) {
+  //       setIsScrollingUp(false);
+  //     }
 
-      lastScrollY.current = currentScrollY;
+  //     lastScrollY.current = currentScrollY;
 
-      // Detect background color behind navbar
-      const navbarHeight = 70; // Adjust to match navbar height
-      const elementBehindNavbar = document.elementFromPoint(window.innerWidth / 2, navbarHeight);
-      if (elementBehindNavbar) {
-        const backgroundColor = window.getComputedStyle(elementBehindNavbar).backgroundColor;
-        setIsOnWhiteBackground(backgroundColor.includes("255, 255, 255"));
-      }
-    };
+  //     // Detect background color behind navbar
+  //     const navbarHeight = 70; // Adjust to match navbar height
+  //     const elementBehindNavbar = document.elementFromPoint(window.innerWidth / 2, navbarHeight);
+  //     if (elementBehindNavbar) {
+  //       const backgroundColor = window.getComputedStyle(elementBehindNavbar).backgroundColor;
+  //       setIsOnWhiteBackground(backgroundColor.includes("255, 255, 255"));
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   
   return (
     <>
       <div
-        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-3 backdrop-blur-sm flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
+        className={`px-[20px] top-0 max-w-[1724px] lg:px-20 p-3 backdrop-blur-sm bg-primary/90 flex flex-row items-center justify-between fixed w-full z-50 transition-transform duration-300 ${
           isScrollingUp ? "translate-y-0" : "-translate-y-full"
         } ${isActive ? "bg-primary" : "bg-white/10"}`}
       >
@@ -63,31 +63,31 @@ const Navbar = () => {
         <div className="flex-row gap-[50px] items-center hidden md:flex">
           <Link
             href="/"
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             Home
           </Link>
           <Link
             href="/HowItWorks"
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             How It Works
           </Link>
           <Link
             href="/services"
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             Services
           </Link>
           <Link
             href="/aboutus"
-            className={`${isOnWhiteBackground ? "text-primary" : "text-white"} text-[12px] font-[400] hover:scale-110 duration-300`}
+            className={`text-white text-[12px] font-[400] hover:scale-110 duration-300`}
           >
             About Us
           </Link>
         </div>
         <div onClick={() => setIsActive(!isActive)} className="flex md:hidden">
-          <span className={`${isOnWhiteBackground ? "text-primary" : "text-white"} ${isActive ? "text-white" : ""} text-[30px] cursor-pointer`}>
+          <span className={`text-white ${isActive ? "text-white" : ""} text-[30px] cursor-pointer`}>
             {!isActive ? <FaBars /> : <IoClose />}
           </span>
         </div>
