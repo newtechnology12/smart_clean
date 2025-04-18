@@ -35,7 +35,26 @@ const FrequentlyQuestion = () => {
         <div className=' bg-[#FAFAFA] w-full py-10 px-[20px] md:px-10 lg:px-20 flex flex-col gap-[20px]'>
             <div className='flex flex-col lg:flex-row gap-[20px] justify-between items-end'>
                 <div className='w-full lg:w-1/2 flex flex-col'>
-                    <h2 className='text-[16px] text-secondary'>Frequently Asked Questions</h2>
+                    <h2 className='text-[16px] text-secondary py-2'>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            className="inline-block mr-2 text-gray-500"
+                        >
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+                            <path
+                                d="M12 16H12.01M12 12C12.5523 12 13 11.5523 13 11C13 10.4477 12.5523 10 12 10C11.4477 10 11 10.4477 11 11M12 12V13"
+                                stroke="currentColor"
+                                strokeWidth="1.5"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </svg>
+                        Frequently Asked Questions
+                    </h2>
                     <h1 className='text-[36px] text-primary font-[700] max-w-[600px] leading-10'>Your Most Common Cleaning Queries Answered</h1>
                 </div>
                 <div className='w-full lg:w-1/2 flex flex-col'>

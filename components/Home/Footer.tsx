@@ -7,10 +7,10 @@ const Footer = () => {
             <div className='grid sm:grid-cols-2 w-f lg:grid-cols-4 w-full gap-[20px]'>
                 <div className='flex flex-col items-center sm:items-start lg:items-center'>
                     <div className='w-[150px] bg-gray-900'>
-                        <Image src={`/image/hiremeafrica 2.png`} width={1000} height={1000} alt='logo' className='w-full' />
+                        <Image src={`/image/logo.svg`} width={1000} height={1000} alt='logo' className='w-full' />
                     </div>
                     <div className='flex flex-row gap-[4px] items-center'>
-                        <a href="">
+                        <a href="https://www.instagram.com/smartcleans2024?igsh=NmpxcW1jczg3cTg=">
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 3.26953H19C19.5304 3.26953 20.0391 3.48024 20.4142 3.85532C20.7893 4.23039 21 4.7391 21 5.26953V19.2695C21 19.8 20.7893 20.3087 20.4142 20.6837C20.0391 21.0588 19.5304 21.2695 19 21.2695H5C4.46957 21.2695 3.96086 21.0588 3.58579 20.6837C3.21071 20.3087 3 19.8 3 19.2695V5.26953C3 4.7391 3.21071 4.23039 3.58579 3.85532C3.96086 3.48024 4.46957 3.26953 5 3.26953ZM18 5.26953H15.5C14.5717 5.26953 13.6815 5.63828 13.0251 6.29466C12.3687 6.95104 12 7.84127 12 8.76953V11.2695H10V14.2695H12V21.2695H15V14.2695H18V11.2695H15V9.26953C15 9.00431 15.1054 8.74996 15.2929 8.56242C15.4804 8.37489 15.7348 8.26953 16 8.26953H18V5.26953Z" fill="#D32F2F" />
                             </svg>
@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className='flex flex-col gap-[10px] items-center sm:items-start'>
                     <h1 className='text-[18px] font-[700] text-[#333330]'>About Us</h1>
                     <div className='flex flex-col gap-[15px] text-[#4B4B4B] text-center sm:text-start'>
-                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Our Services</a>
+                        <a href="./" className='text-[16px] font-[400] hover:text-[black] duration-300'>Our Services</a>
                         <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Terms & Conditions</a>
                         <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Privay Policy</a>
                     </div>
@@ -53,13 +53,13 @@ const Footer = () => {
                     <h1 className='text-[18px] font-[700] text-[#333330]'>Contact Us</h1>
                     <div className='flex flex-col gap-[10px] text-[#4B4B4B] text-center sm:text-start'>
                         <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>Tel: +1 (432) 308-6130</a>
-                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>info@prozlab.com</a>
+                        <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>smartcleanservices@gmail.com</a>
                         <a href="" className='text-[16px] font-[400] hover:text-[black] duration-300'>USA</a>
                     </div>
                 </div>
             </div>
             <div className='w-full items-center justify-center p-2 flex'>
-                <span className='text-[16px] text-[#4B4B4B] font-[400]'>© {new Date().getFullYear()}  HMA. ALL RIGHTS RESERVED.</span>
+                <span className='text-[16px] text-[#4B4B4B] font-[400]'>© {new Date().getFullYear()}  Smart Clean Services. ALL RIGHTS RESERVED.</span>
             </div>
         </div>
     )

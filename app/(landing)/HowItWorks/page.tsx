@@ -123,70 +123,39 @@ const HowItWorks = () => {
                                 </h2>
                                 <div className="relative overflow-x-hidden max-sm:overflow-x-auto">
                                     {/* Slider */}
-                                    <div id="slider" className="flex overflow-x-visible space-x-8 pb-4 duration-700">
+                                    <div id="slider" className="flex items-center justify-center w-full space-x-8 pb-4 lg:px-20 duration-700">
                                         {/* Card 1 */}
-                                        <div className="flex-shrink-0 w-60 max-sm:max-w-full bg-gray-100 rounded-2xl border-2 ring-2 ring-blue-400 border-primary shadow-lg pb-5 p-2">
-                                            <iframe className='rounded-xl' width="100%" height="120" src="https://www.youtube.com/embed/UuKn__onO0Q?si=0fGZjYoPq30YeSN2" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                            <h3 className="text-lg font-bold text-primary pt-5 px-5">Welcome to our Cleaning session</h3>
-                                            <p className="text-gray-600 p-5 py-3">Watch us cleaning one of rwandan home.</p>
+                                        <div className="max-sm:max-w-full grid grid-cols-2 max-sm:grid-cols-1 bg-gray-100 rounded-2xl border border-slate-300 shadow-lg p-2">
+                                            <iframe className='rounded-xl' width="100%" height="100%" src="https://www.youtube.com/embed/1Bsgv6DnTiI?si=l-OIGwptK0aTWZ2d" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                            <div className="p-3 flex flex-col justify-center items-start">
+                                                <h3 className="text-lg font-bold text-primary pt-5 px-5">Welcome to our Cleaning session</h3>
+                                                <p className="text-gray-600 p-5 py-3 text-base">                                                    
+                                                    <div className='font-semibold pb-2 text-sm'>123,961 views  Jan 29, 2020</div>
+                                                    Voted best cleaning services for several years, we provide high-quality house and office cleaning services using eco-friendly methods and products. Our expertly trained cleaners come equipped, with state-of-the-art equipment and natural cleaning products, to leave your space sparkling clean every time. Book online or call our customer care for a hassle-free experience. Satisfaction guaranteed!
+                                                </p>
+                                                <a href="https://youtu.be/1Bsgv6DnTiI?si=8Gn9i1xpyWws6krV" target="_blank" rel="noopener noreferrer" className="bg-primary text-white py-2 px-4 ml-5 rounded-md">
+                                                    Watch Now
+                                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        {/* Card 2 */}
+                                        {/* <div className="flex-shrink-0 w-1/2 max-sm:max-w-full bg-gray-100 rounded-2xl border border-slate-300 shadow-lg pb-5 p-2">
+                                            <iframe className='rounded-xl' width="100%" height="250" src="https://www.youtube.com/embed/UuKn__onO0Q?si=0fGZjYoPq30YeSN2" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                                            <h3 className="text-lg font-semibold text-primary pt-5 px-5">What we clean?</h3>
+                                            <p className="text-gray-600 p-5 py-3">watch our team explaining what kind of services we offer.</p>
                                             <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-primary text-white py-2 px-4 ml-5 rounded-md">
                                                 Watch Now
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
                                                 </svg>
                                             </a>
-                                        </div>
-                                        {/* Card 2 */}
-                                        <div className="flex-shrink-0 w-60 max-sm:max-w-full bg-gray-100 rounded-2xl border border-slate-300 shadow-lg pb-5 p-2">
-                                            <iframe className='rounded-xl' width="100%" height="120" src="https://www.youtube.com/embed/UuKn__onO0Q?si=0fGZjYoPq30YeSN2" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                            <h3 className="text-lg font-semibold text-primary pt-5 px-5">What we clean?</h3>
-                                            <p className="text-gray-600 p-5 py-3">watch our team explaining what kind of services we offer.</p>
-                                            <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-secondary text-white py-2 px-4 ml-5 rounded-md">
-                                                Watch Now
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        {/* Card 3 */}
-                                        <div className="flex-shrink-0 w-60 max-sm:max-w-full bg-gray-100 rounded-2xl border border-slate-300 shadow-lg pb-5 p-2">
-                                            <iframe className='rounded-xl' width="100%" height="120" src="https://www.youtube.com/embed/WtO1Fc-ldOU?si=6982rw2vuooBHgd4" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                            <h3 className="text-lg font-semibold text-primary pt-5 px-5">Tools used</h3>
-                                            <p className="text-gray-600 p-5 py-3">What we use to make your house look like a place?</p>
-                                            <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-secondary text-white py-2 px-4 ml-5 rounded-md">
-                                                Watch Now
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        {/* Card 4 */}
-                                        <div className="flex-shrink-0 w-60 bg-gray-100 rounded-2xl border border-slate-300 shadow-lg pb-5 p-2">
-                                            <iframe className='rounded-xl' width="100%" height="120" src="https://www.youtube.com/embed/WtO1Fc-ldOU?si=6982rw2vuooBHgd4" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                            <h3 className="text-lg font-semibold text-primary pt-5 px-5">How to Hit us up for work?</h3>
-                                            <p className="text-gray-600 p-5 py-3">Learn how to request for cleaning service.</p>
-                                            <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-secondary text-white py-2 px-4 ml-5 rounded-md">
-                                                Watch Now
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        {/* Card 5 */}
-                                        <div className="flex-shrink-0 w-60 bg-gray-100 rounded-2xl border border-slate-300 shadow-lg pb-5 p-2">
-                                            <iframe className='rounded-xl' width="100%" height="120" src="https://www.youtube.com/embed/WtO1Fc-ldOU?si=6982rw2vuooBHgd4" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                                            <h3 className="text-lg font-semibold text-primary pt-5 px-5">What are steps to clean house? </h3>
-                                            <p className="text-gray-600 p-5 py-3">Want to get a hint from our expertise?</p>
-                                            <a href="https://www.youtube.com/watch?v=video1" target="_blank" rel="noopener noreferrer" className="bg-secondary text-white py-2 px-4 ml-5 rounded-md">
-                                                Watch Now
-                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline-block ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7l7 7-7 7" />
-                                                </svg>
-                                            </a>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     {/* Slide Controls */}
-                                    <div className="flex justify-end space-x-4 mt-8 max-sm:hidden">
+                                    {/* <div className="flex justify-end space-x-4 mt-8 max-sm:hidden">
                                         <button className="controlBtn duration-300 w-12 h-12 bg-gray-300 rounded-full text-gray-400 focus:outline-none font-bold flex items-center justify-center" onClick={(e) => prev(e.currentTarget as HTMLElement)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -198,7 +167,7 @@ const HowItWorks = () => {
                                             </svg>
                                         </button>
                                         
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </section>

@@ -39,7 +39,7 @@ const ContactUs = () => {
 
                         <div className='flex flex-col'>
                             <span className='text-[14px] font-[600]'>Email us</span>
-                            <span className='text-[14px] font-[600]'>allcleaning@gmail.com</span>
+                            <span className='text-[14px] font-[600]'>smartcleanservices@gmail.com</span>
                         </div>
 
                     </div>

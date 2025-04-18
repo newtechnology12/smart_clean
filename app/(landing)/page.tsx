@@ -68,8 +68,8 @@ export default function Home() {
           <div className=" w-full lg:w-1/4  flex flex-col gap-[20px]">
             <h1 className="text-[24px] font-[600]">LET'S GET IN TOUCH</h1>
             <div className="flex flex-col gap-[10px]">
-              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-[#F8F8F8] items-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-slate-100 items-center">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.23914 10.3913C4.25354 6.15069 7.7029 2.7247 11.9435 2.73906C16.1841 2.75351 19.6101 6.20287 19.5957 10.4435V10.5304C19.5435 13.2869 18.0044 15.8348 16.1174 17.8261C15.0382 18.9467 13.8331 19.9388 12.5261 20.7826C12.1766 21.0849 11.6582 21.0849 11.3087 20.7826C9.3602 19.5143 7.65007 17.9131 6.25653 16.0521C5.01449 14.4294 4.3093 12.4597 4.23914 10.4174V10.3913Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M11.9174 13C13.2765 13 14.3783 11.8982 14.3783 10.5391C14.3783 9.18002 13.2765 8.07825 11.9174 8.07825C10.5583 8.07825 9.45654 9.18002 9.45654 10.5391C9.45654 11.8982 10.5583 13 11.9174 13Z" stroke="#1D2E4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
@@ -78,17 +78,17 @@ export default function Home() {
                   <span className="text-[14px]">2807 henderson ave  odessa , Tx 79764</span>
                 </div>
               </div>
-              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-[#F8F8F8] items-center">
+              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-slate-100 items-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M17.2677 8.56116L13.0023 11.9954C12.1951 12.6283 11.0635 12.6283 10.2563 11.9954L5.95422 8.56116" stroke="#1D2E4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M6.88787 3H16.3158C17.6752 3.01525 18.969 3.58993 19.896 4.5902C20.823 5.59048 21.3022 6.92903 21.222 8.29412V14.822C21.3022 16.1871 20.823 17.5256 19.896 18.5259C18.969 19.5262 17.6752 20.1009 16.3158 20.1161H6.88787C3.96796 20.1161 2 17.7407 2 14.822V8.29412C2 5.37545 3.96796 3 6.88787 3Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
                 <div className="flex flex-col">
                   <span className="text-[16px] font-[600] ">Email</span>
-                  <span className="text-[14px]">info@prozlab.com</span>
+                  <span className="text-[14px]">smartcleanservices@gmail.com</span>
                 </div>
               </div>
-              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-[#F8F8F8] items-center">
+              <div className="flex flex-row gap-[10px] p-4 rounded-[12px] bg-slate-100 items-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14.353 2.5C18.054 2.911 20.978 5.831 21.393 9.532" stroke="#1D2E4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                   <path d="M14.353 6.04297C16.124 6.38697 17.508 7.77197 17.853 9.54297" stroke="#1D2E4C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -107,28 +107,28 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-[20px]">
                 <div className="flex flex-col gap-[4px]">
                   <label htmlFor="name" className="text-[14px] font-[600]">Name</label>
-                  <input name="name" onChange={contactFormik.handleChange} value={contactFormik.values.name} type="text" placeholder="Enter Name" className="w-full p-4 rounded-[12px] bg-[#F8F8F8] outline-none" />
+                  <input name="name" onChange={contactFormik.handleChange} value={contactFormik.values.name} type="text" placeholder="Enter Name" className="w-full p-4 rounded-[12px] bg-slate-100 outline-none" />
                   {contactFormik.touched.name && contactFormik.errors.name && <span className="text-[12px] text-[red]">{contactFormik.errors.name}</span>}
                 </div>
                 <div className="flex flex-col gap-[4px]">
                   <label htmlFor="email" className="text-[14px] font-[600]">Email</label>
-                  <input name="email" onChange={contactFormik.handleChange} value={contactFormik.values.email} type="email" placeholder="Enter Email" className="w-full p-4 rounded-[12px] bg-[#F8F8F8] outline-none" />
+                  <input name="email" onChange={contactFormik.handleChange} value={contactFormik.values.email} type="email" placeholder="Enter Email" className="w-full p-4 rounded-[12px] bg-slate-100 outline-none" />
                   {contactFormik.touched.email && contactFormik.errors.email && <span className="text-[12px] text-[red]">{contactFormik.errors.email}</span>}
                 </div>
                 <div className="flex flex-col gap-[4px]">
                   <label htmlFor="phone" className="text-[14px] font-[600]">Phone</label>
-                  <input name="phone" onChange={contactFormik.handleChange} value={contactFormik.values.phone} type="number" placeholder="Enter Phone" className="w-full p-4 rounded-[12px] bg-[#F8F8F8] outline-none" />
+                  <input name="phone" onChange={contactFormik.handleChange} value={contactFormik.values.phone} type="number" placeholder="Enter Phone" className="w-full p-4 rounded-[12px] bg-slate-100 outline-none" />
                   {contactFormik.touched.phone && contactFormik.errors.phone && <span className="text-[12px] text-[red]">{contactFormik.errors.phone}</span>}
                 </div>
                 <div className="flex flex-col gap-[4px]">
                   <label htmlFor="topic" className="text-[14px] font-[600]">Topic</label>
-                  <input name="topic" onChange={contactFormik.handleChange} value={contactFormik.values.topic} type="text" placeholder="Enter Topic" className="w-full p-4 rounded-[12px] bg-[#F8F8F8] outline-none" />
+                  <input name="topic" onChange={contactFormik.handleChange} value={contactFormik.values.topic} type="text" placeholder="Enter Topic" className="w-full p-4 rounded-[12px] bg-slate-100 outline-none" />
                   {contactFormik.touched.topic && contactFormik.errors.topic && <span className="text-[12px] text-[red]">{contactFormik.errors.topic}</span>}
                 </div>
               </div>
               <div className="flex flex-col gap-[4px]">
                 <label htmlFor="message" className="text-[14px] font-[600]">Message</label>
-                <textarea name="message" onChange={contactFormik.handleChange} value={contactFormik.values.message} rows={4} placeholder="Message" className="w-full p-4 rounded-[12px] bg-[#F8F8F8] outline-none" />
+                <textarea name="message" onChange={contactFormik.handleChange} value={contactFormik.values.message} rows={4} placeholder="Message" className="w-full p-4 rounded-[12px] bg-slate-100 outline-none" />
                 {contactFormik.touched.message && contactFormik.errors.message && <span className="text-[12px] text-[red]">{contactFormik.errors.message}</span>}
               </div>
               <button type="submit" className="w-full p-4 rounded-[12px] bg-[#000] text-[#fff]">
@@ -141,7 +141,9 @@ export default function Home() {
 
         </div>
       </div>
+      <div id="faqs">
       <FrequentlyQuestion />
+      </div>
 
     </div>
   );
